@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Module05Exercise01.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Module05Exercise01"
+    xmlns:views="clr-namespace:Module05Exercise01.View"
+    Shell.FlyoutBehavior="Disabled"
+    Title="Module05Exercise01">
+
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+
+    <ShellContent
+        Title="View Employee"
+        ContentTemplate="{DataTemplate views:ViewEmployee}"
+        Route="ViewEmployee"/>
+
+</Shell>

@@ -1,0 +1,63 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Module05Exercise01.MainPage"
+             Title="Login"
+             BackgroundColor="#f0f4f7">
+
+    <!-- Grid to handle centering -->
+    <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+
+        <!-- Login form stack layout -->
+        <VerticalStackLayout
+            WidthRequest="300"
+            Spacing="30"
+ 
+            BackgroundColor="White"
+            HorizontalOptions="Center"
+            VerticalOptions="Center">
+
+            <!-- Username Entry -->
+            <Frame BorderColor="#3f51b5" Padding="10">
+                <HorizontalStackLayout>
+                    <Image Source="user_icon.png" WidthRequest="20" HeightRequest="20" VerticalOptions="Center"/>
+                    <Entry Placeholder="Username" 
+                           FontSize="16"
+                           TextColor="Black"
+                           HorizontalOptions="FillAndExpand"/>
+                </HorizontalStackLayout>
+            </Frame>
+
+            <!-- Password Entry -->
+            <Frame BorderColor="#3f51b5" Padding="10">
+                <HorizontalStackLayout>
+                    <Image Source="lock_icon.png" WidthRequest="20" HeightRequest="20" VerticalOptions="Center"/>
+                    <Entry Placeholder="Password"
+                           IsPassword="True"
+                           FontSize="16"
+                           TextColor="Black"
+                           HorizontalOptions="FillAndExpand"/>
+                </HorizontalStackLayout>
+            </Frame>
+
+            <!-- Login Button -->
+            <Button Text="Login"
+                    Clicked="OnViewEmployee"
+                    HorizontalOptions="Fill"
+                    BackgroundColor="#3f51b5"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    Padding="10"
+                    HeightRequest="50">
+                <Button.ImageSource>
+                    <FontImageSource Glyph="&#xE8D1;"
+                                     FontFamily="Segoe MDL2 Assets"
+                                     Size="20"
+                                     Color="White"/>
+                </Button.ImageSource>
+            </Button>
+
+        </VerticalStackLayout>
+
+    </Grid>
+
+</ContentPage>

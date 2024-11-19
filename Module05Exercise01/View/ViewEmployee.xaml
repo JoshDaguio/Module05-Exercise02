@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Module05Exercise01.View.ViewEmployee"
+             Title="Employee List"
+             BackgroundColor="#f0f4f7">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <Label Text="Employee Information"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   TextColor="#3f51b5"
+                   HorizontalOptions="Center"/>
+
+            <!-- Employee List -->
+            <ListView ItemsSource="{Binding EmployeeList}"
+                      HasUnevenRows="True"
+                      SelectedItem="{Binding SelectedEmployee}" 
+                      SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame BorderColor="#e0e0e0" CornerRadius="10" Padding="10" Margin="5">
+                                <StackLayout Padding="5">
+                                    <Label Text="{Binding Name}" FontSize="16" FontAttributes="Bold"/>
+                                    <Label Text="{Binding email}" FontSize="12" TextColor="Gray"/>
+                                    <Label Text="{Binding ContactNo}" FontSize="12" TextColor="Gray"/>
+                                    <Label Text="{Binding Address}" FontSize="12" TextColor="Gray"/>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <!-- Status Label -->
+            <Label x:Name="ConnectionStatusLabel"
+                   Text="{Binding statusMessage}"
+                   FontSize="14"
+                   TextColor="#f44336"
+                   HorizontalOptions="Center"/>
+
+            <!-- Load Data Button -->
+            <Button Text="Load Data" 
+                    Command="{Binding LoadDataCommand}"
+                    BackgroundColor="#3f51b5"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    Padding="10"
+                    CornerRadius="8"
+                    HeightRequest="50">
+                <Button.ImageSource>
+                    <FontImageSource Glyph="&#xE8C3;"
+                                     FontFamily="Segoe MDL2 Assets"
+                                     Size="20"
+                                     Color="White"/>
+                </Button.ImageSource>
+            </Button>
+
+            <!-- Add New Employee Section -->
+            <Label Text="Add Employee"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   TextColor="#3f51b5"
+                   HorizontalOptions="Center"/>
+            <Entry Placeholder="Name"
+                   Text="{Binding NewEmployeeName}" 
+                   TextColor="Black"/>
+            <Entry Placeholder="Address"
+                   Text="{Binding NewEmployeeAddress}" 
+                   TextColor="Black"/>
+            <Entry Placeholder="Email"
+                   Text="{Binding NewEmployeeEmail}" 
+                   TextColor="Black"/>
+            <Entry Placeholder="Contact No"
+                   Text="{Binding NewEmployeeContactNo}" 
+                   TextColor="Black"/>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="10">
+                <Button Text="Add New Employee"
+                        Command="{Binding AddEmployeeCommand}"
+                        BackgroundColor="Black"
+                        TextColor="White"/>
+                <Button Text="Delete Employee"
+                        Command="{Binding DeleteEmployeeCommand}"
+                        IsEnabled="{Binding IsEmployeeSelected}"
+                        BackgroundColor="Black"
+                        TextColor="White"/>
+            </StackLayout>
+
+            <!-- Back Home Button -->
+            <Button Text="Back Home"
+                    Clicked="OnBackHome"
+                    BackgroundColor="#f44336"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    Padding="10"
+                    CornerRadius="8"
+                    HeightRequest="50">
+                <Button.ImageSource>
+                    <FontImageSource Glyph="&#xE72B;"
+                                     FontFamily="Segoe MDL2 Assets"
+                                     Size="20"
+                                     Color="White"/>
+                </Button.ImageSource>
+            </Button>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
